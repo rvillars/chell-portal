@@ -1,0 +1,28 @@
+{
+    "name": "chell-portal",
+    "version": "0.0.1",
+    "dependencies": {},
+    "devDependencies": {
+        "angular": "~1.2",
+        "angular-resource": "~1.2",
+        "angular-mocks": "~1.2",
+        "bootstrap": "~3.1",
+        "angular-bootstrap": "~0.10.0",
+        "angular-ui-sortable": "~0.12",
+        "angular-ui-utils": "~0.1",
+        "angular-ui-router": "~0.2",
+        "ng-table": "~0.3.2",
+        "underscore": "~1.6",
+        "angular-underscore-module": "",
+        "angular-underscore": "",
+        "angular-md5": "~0.1",
+        "angular-base64": "~2.0",
+        "ckeditor": "",
+
+        "chell-iam": "~0.0.1",
+        "chell-portlet": "~0.0.1",
+        "chell-cms": "~0.0.1",
+        "chell-bookapp": "~0.0.1",
+        "chell-search": "~0.0.1"
+    }
+}

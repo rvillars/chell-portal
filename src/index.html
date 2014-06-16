@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html ng-app="chell-portal" ng-controller="AppCtrl">
+<head>
+    <title ng-bind="pageTitle"></title>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="mimacom Chell NextGen Portal">
+    <meta name="author" content="Roger Villars">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+    <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="assets/ckeditor/adapters/jquery.js"></script>
+</head>
+
+<body id="portal" class="chell-login-required">
+
+<!-- Top navigation bar -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand navbar-logo" src="assets/portal-logo.png"/>
+            <a class="navbar-brand" href="#">Chell Portal</a>
+        </div>
+
+        <!-- Menus -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <!-- Portal Menus -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown">
+                        Messages <span class="badge badge-info">100</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Message 1</a></li>
+                        <li><a href="#">Another message</a></li>
+                        <li><a href="#">Something else message</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Older messages...</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown">
+                        Settings
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Personal Info</a></li>
+                        <li><a href="#">Preferences</a></li>
+                        <li><a href="#">Alerts</a></li>
+                        <li><a class="cookie-delete" href="#">Delete Cookies</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Help</a></li>
+            </ul>
+
+            <!-- Current User Menus -->
+            <ul class="nav navbar-nav pull-right" ng-controller="CurrentUserController">
+                <div class="btn-group">
+                    <a class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" href="#">
+                        <i class="glyphicon glyphicon-user"></i> {{currentUser.fullname}} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#profile">Profile</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a class="cookie-delete" href="#">Delete Cookies</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <a class="btn btn-default navbar-btn">
+                        <i class="glyphicon glyphicon-th-large" chell-portal-menu-toggle></i>
+                    </a>
+                </div>
+            </ul>
+
+            <!-- Navbar Search -->
+            <div class="col-sm-3 col-md-3 pull-right" ng-controller="SearchBarController">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" ng-model="searchTerm">
+                        <div class="input-group-btn">
+                            <a class="btn btn-default" ui-sref="searchresults" ng-click="search()"><i class="glyphicon glyphicon-search"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Main Area -->
+<div id="main" class="container-fluid">
+    <div class="row">
+
+        <!-- Side Panel -->
+        <div class="col-md-2">
+
+            <!-- UserInfo -->
+            <div class="member-box round-all" ng-controller="CurrentUserController">
+                <a><img ng-src="{{currentUser ? currentUser.gravatarMail ? ('http://www.gravatar.com/avatar/'+(currentUser.gravatarMail | md5)+'?s=50') : currentUser.photo : 'assets/member_ph.png'}}" class="member-box-avatar"/></a>
+                <span>
+                    <strong>{{currentUser.primaryRole.name}}</strong><br/>
+                    <a href="#profile">{{currentUser.fullname}}</a><br/>
+                    <span class="member-box-links"><a>Settings</a> | <a href="#" data-toggle="modal" data-target=".bs-modal-sm"
+                                                                        ng-click="logout()">Logout</a></span>
+                </span>
+            </div>
+
+            <!-- Side Navigation -->
+            <div class="sidebar-nav">
+                <div class="well" style="padding: 8px 0;">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Main</li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard"><i class="glyphicon glyphicon-home"></i> Dashboard</a>
+                        </li>
+                        <li ui-sref-active="active"><a ui-sref="contentman"><i class="glyphicon glyphicon-edit"></i> Content Management</a></li>
+                        <li ui-sref-active="active"><a ui-sref="bookapp"><i class="glyphicon glyphicon-book"></i> Bookapp</a>
+                        </li>
+                        <li ui-sref-active="active"><a ui-sref="searchresults"><i class="glyphicon glyphicon-align-justify"></i> Search Results</a>
+                        </li>
+                        <li visibility-role-id="101" class="nav-header">Administration</li>
+                        <li ui-sref-active="active" visibility-role-id="101" ><a ui-sref="useradmin"><i class="glyphicon glyphicon-user"></i> User Administration</a></li>
+                        <li class="nav-header">Session</li>
+                        <div ng-controller="CurrentUserController">
+                            <li><a href="#" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Content Area -->
+        <div class="col-md-10">
+
+            <!-- Bread Crumb Navigation -->
+            <div class="btn-group btn-breadcrumb">
+                <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+                <a href="#" class="btn btn-default">{{pageTitle}}</a>
+            </div>
+
+            <!-- Content -->
+            <div class="row">
+                <div ui-view="main"></div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p style="padding-right: 15px;" class="pull-right">&copy; mimacom ag 2014</p>
+        </footer>
+    </div>
+</div>
+
+<aside id="right-panel">
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="Dashboard">
+            <div>Portlet 1</div>
+            <div>Portlet 2</div>
+            <div>Portlet 3</div>
+            <div>Portlet 4</div>
+        </accordion-group>
+        <accordion-group heading="Administration">
+            <div>Users</div>
+            <div>Roles</div>
+        </accordion-group>
+        <accordion-group heading="Bookapp">
+            <div>Books</div>
+            <div>Authors</div>
+        </accordion-group>
+    </accordion>
+</aside>
+
+</body>
+</html>

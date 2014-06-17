@@ -54,26 +54,6 @@ module.exports = function (grunt) {
         },
 
         /**
-         * Run dependend gruntfiles.
-         */
-        hub: {
-            options: {
-                concurrent: 10
-            },
-            build: {
-                src: ['../*/Gruntfile.js'],
-                tasks: ['build']
-            },
-            watch: {
-                options: {
-                    allowSelf: true
-                },
-                src: ['../*/Gruntfile.js'],
-                tasks: ['watch']
-            }
-        },
-
-        /**
          * Creates a changelog on a new version.
          */
         changelog: {
@@ -441,7 +421,6 @@ module.exports = function (grunt) {
                     '<%= vendor_files.js %>',
                     '<%= html2js.app.dest %>',
                     '<%= html2js.common.dest %>',
-                    '<%= html2js.modules.dest %>',
                     '<%= test_files.js %>'
                 ]
             }
@@ -566,28 +545,6 @@ module.exports = function (grunt) {
                 options: {
                     livereload: false
                 }
-            },
-
-            /**
-             * Module watching
-             */
-            modules_js: {
-                files: [
-                    '<%= app_files.module_js %>'
-                ],
-                tasks: [ 'copy:build_vendorjs' ]
-            },
-            modules_less: {
-                files: [
-                    '<%= app_files.module_less %>'
-                ],
-                tasks: [ 'copy:build_vendorjs', 'less:build']
-            },
-            modules_tpl: {
-                files: [
-                    '<%= app_files.module_tpl %>'
-                ],
-                tasks: [ 'copy:build_vendorjs']
             }
         },
 
@@ -632,7 +589,7 @@ module.exports = function (grunt) {
      * The `build` task gets your app ready to run for development.
      */
     grunt.registerTask('build', [
-        'clean', 'hub:build', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
+        'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets', 'copy:build_vendor_asset_packages',
         'copy:build_appjs', 'copy:build_vendorjs', 'index:build'
     ]);

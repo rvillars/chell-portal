@@ -1,14 +1,6 @@
 /**
  * This file/module contains all configuration for the build process.
  */
-module.dependencies = [
-    'chell-iam',
-    'chell-portlet',
-    'chell-cms',
-    'chell-search',
-    'chell-bookapp'
-];
-
 module.exports = {
     /**
      * The `build_dir` folder is where our projects are compiled during
@@ -39,17 +31,6 @@ module.exports = {
 
         html: [ 'src/index.html' ],
         less: 'src/less/main.less',
-
-        /** Needed for watching module changes */
-        module_js: module.dependencies.map(function(module) {
-            return '../'+module+'/src/**/*.js'
-        }),
-        module_less: module.dependencies.map(function(module) {
-            return '../'+module+'/src/less/**/*.less'
-        }),
-        module_tpl: module.dependencies.map(function(module) {
-            return '../'+module+'/src/templates/**/*.tpl.html'
-        })
     },
 
     /**

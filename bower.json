@@ -19,10 +19,10 @@
         "angular-base64": "~2.0",
         "ckeditor": "",
 
-        "chell-iam": "~0.0.1",
-        "chell-portlet": "~0.0.1",
-        "chell-cms": "~0.0.1",
-        "chell-bookapp": "~0.0.1",
-        "chell-search": "~0.0.1"
+        "chell-iam": "rvillars/chell-iam",
+        "chell-portlet": "rvillars/chell-portlet",
+        "chell-cms": "rvillars/chell-cms",
+        "chell-bookapp": "rvillars/chell-bookapp",
+        "chell-search": "rvillars/chell-search"
     }
 }

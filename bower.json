@@ -19,10 +19,10 @@
         "angular-base64": "~2.0",
         "ckeditor": "",
 
-        "chell-iam": "rvillars/chell-iam",
-        "chell-portlet": "rvillars/chell-portlet",
-        "chell-cms": "rvillars/chell-cms",
-        "chell-bookapp": "rvillars/chell-bookapp",
-        "chell-search": "rvillars/chell-search"
+        "chell-iam": "mimacom/chell-iam",
+        "chell-portlet": "mimacom/chell-portlet",
+        "chell-cms": "mimacom/chell-cms",
+        "chell-bookapp": "mimacom/chell-bookapp",
+        "chell-search": "mimacom/chell-search"
     }
 }

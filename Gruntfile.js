@@ -244,6 +244,7 @@ module.exports = function (grunt) {
         uglify: {
             compile: {
                 options: {
+                    sourceMap: true,
                     banner: '<%= meta.banner %>'
                 },
                 files: {

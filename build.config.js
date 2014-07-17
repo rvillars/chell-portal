@@ -77,6 +77,9 @@ module.exports = {
             'vendor/angular-ui-sortable/sortable.js',
             'vendor/ng-table/ng-table.js',
 
+            //Angular-Translate
+            'vendor/angular-translate/angular-translate.js',
+
             //Underscore
             'vendor/underscore/underscore.js',
             'vendor/angular-underscore-module/angular-underscore-module.js',

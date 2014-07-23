@@ -20,6 +20,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-open');
+    grunt.loadNpmTasks('grunt-json-angular-translate');
 
     /**
      * Load in our build configuration file.
@@ -390,6 +391,7 @@ module.exports = function (grunt) {
                     '<%= build_dir %>/src/**/*.js',
                     '<%= html2js.common.dest %>',
                     '<%= html2js.app.dest %>',
+                    '<%= jsonAngularTranslate.translations.options.concatScript %>',
                     '<%= vendor_files.css %>',
                     '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ]
@@ -560,6 +562,20 @@ module.exports = function (grunt) {
             all: {
                 path: 'http://localhost:9090/portal'
             }
+        },
+        jsonAngularTranslate: {
+            translations: {
+                options: {
+                    moduleName: 'translations',
+                    preferredLanguage: 'en',
+                    concatScript: 'build/translations.js'
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/i18n',
+                    src: '**/*.json'
+                }]
+            }
         }
     };
 
@@ -589,7 +605,7 @@ module.exports = function (grunt) {
      * The `build` task gets your app ready to run for development.
      */
     grunt.registerTask('build', [
-        'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
+        'clean', 'html2js', 'jsonAngularTranslate', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets', 'copy:build_vendor_asset_packages',
         'copy:build_appjs', 'copy:build_vendorjs', 'index:build'
     ]);
@@ -598,7 +614,7 @@ module.exports = function (grunt) {
      * The `build-karma` task gets your app ready to run for development and testing.
      */
     grunt.registerTask('build-karma', [
-        'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
+        'clean', 'html2js', 'jsonAngularTranslate', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets', 'copy:build_vendor_asset_packages',
         'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
         'karma:continuous'

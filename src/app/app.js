@@ -15,6 +15,7 @@ var chellPortal = angular.module('chell-portal', [
     'chell-cms',
     'chell-search',
     'chell-bookapp',
+    'translations',
     'ngMockE2E'
 ]);
 

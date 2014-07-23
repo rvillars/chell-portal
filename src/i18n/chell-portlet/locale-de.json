@@ -1,20 +1,20 @@
 {
     "CHELL_PORTLET": {
         "CONFIRM_DIALOG": {
-            "REMOVE_PORTLET_QUESTION": "Remove the Portlet?",
+            "REMOVE_PORTLET_QUESTION": "Portlet ausblenden?",
             "CLOSE_CHAR": "x",
-            "QUESTION": "Are you sure?",
+            "QUESTION": "Sind Sie sicher?",
             "OK": "OK",
-            "CANCEL": "Cancel"
+            "CANCEL": "Abbrechen"
         },
         "CONFIG_DIALOG": {
             "PORTLET_CONFIG": "Portlet Konfiguration",
-            "BORDERLESS": "Borderless",
-            "PINNED": "Pinned",
+            "BORDERLESS": "Ohne Rahmen",
+            "PINNED": "Fixiert",
             "CLOSE_CHAR": "x",
-            "ADJUST_WIDGET": "Adjust Widget",
-            "SAVE_CHANGES": "Save Changes",
-            "CANCEL": "Cancel"
+            "ADJUST_WIDGET": "Portlet anpassen",
+            "SAVE_CHANGES": "Speichern",
+            "CANCEL": "Abbrechen"
         }
     }
 }

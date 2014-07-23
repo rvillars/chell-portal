@@ -30,7 +30,7 @@ module.exports = {
         ctpl: [ 'src/common/**/*.tpl.html' ],
 
         html: [ 'src/index.html' ],
-        less: 'src/less/main.less',
+        less: 'src/less/main.less'
     },
 
     /**
@@ -97,6 +97,9 @@ module.exports = {
             'vendor/angular-md5/angular-md5.js',
             'vendor/angular-base64/angular-base64.js',
             'vendor/elasticsearch/elasticsearch.angular.js',
+
+            //Angular-Translate
+            'vendor/angular-translate/angular-translate.js',
 
             //Chell
             'vendor/chell-iam/chell-iam.js',

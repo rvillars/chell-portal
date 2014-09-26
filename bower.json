@@ -20,7 +20,7 @@
         "angular-translate": "~2.2.0",
         "ckeditor": "",
 
-        "chell-iam": "mimacom/chell-iam",
+        "chell-iam": "mimacom/chell-iam#v0.1.0",
         "chell-portlet": "mimacom/chell-portlet",
         "chell-cms": "mimacom/chell-cms",
         "chell-bookapp": "mimacom/chell-bookapp",

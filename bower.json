@@ -22,7 +22,7 @@
 
         "chell-iam": "mimacom/chell-iam#v0.1.0",
         "chell-portlet": "mimacom/chell-portlet",
-        "chell-cms": "mimacom/chell-cms",
+        "chell-cms": "mimacom/chell-cms#v0.1.0",
         "chell-bookapp": "mimacom/chell-bookapp",
         "chell-search": "mimacom/chell-search"
     }

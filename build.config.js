@@ -97,14 +97,16 @@ module.exports = {
             'vendor/angular-md5/angular-md5.js',
             'vendor/angular-base64/angular-base64.js',
             'vendor/elasticsearch/elasticsearch.angular.js',
+            'vendor/Sortable/Sortable.js',
 
-            //Angular-Translate
+            //Angular
             'vendor/angular-translate/angular-translate.js',
+            'vendor/angular-local-storage/dist/angular-local-storage.js',
 
             //Chell
             'vendor/chell-iam/chell-iam.js',
             'vendor/chell-iam/adapters/MockIamAdapter.js',
-            'vendor/chell-portlet/chell-portlet.js',
+            'vendor/chell-widget/chell-widget.js',
             'vendor/chell-cms/chell-cms.js',
             'vendor/chell-cms/adapters/MockCmsAdapter.js',
             'vendor/chell-search/chell-search.js',
@@ -118,7 +120,7 @@ module.exports = {
         assets: [
             'vendor/bootstrap/fonts/*',
             'vendor/chell-iam/assets/*',
-            'vendor/chell-portlet/assets/*',
+            'vendor/chell-widget/assets/*',
             'vendor/chell-bookapp/assets/*'
         ],
         asset_packages: [

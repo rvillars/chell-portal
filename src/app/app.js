@@ -11,7 +11,7 @@ var chellPortal = angular.module('chell-portal', [
     'chell-portal.profile',
     'ui.router',
     'chell-iam',
-    'chell-portlet',
+    'chell-widget',
     'chell-cms',
     'chell-search',
     'chell-bookapp',

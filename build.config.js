@@ -109,6 +109,7 @@ module.exports = {
             'vendor/chell-widget/chell-widget.js',
             'vendor/chell-cms/chell-cms.js',
             'vendor/chell-cms/adapters/MockCmsAdapter.js',
+            'vendor/chell-cms/adapters/MockCmsMock.js',
             'vendor/chell-search/chell-search.js',
             'vendor/chell-search/adapters/MockSearchAdapter.js',
             'vendor/chell-search/interceptors/CmsSearchInterceptor.js',
@@ -124,7 +125,7 @@ module.exports = {
             'vendor/chell-bookapp/assets/*'
         ],
         asset_packages: [
-            'ckeditor/**/*'
+            'ng-ckeditor/**/*'
         ]
     }
 };

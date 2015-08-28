@@ -3,18 +3,21 @@
 <head>
     <title ng-bind="pageTitle"></title>
 
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="chell-js NextGen Portal">
     <meta name="author" content="Roger Villars">
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+    <% }); %>
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
-    <script type="text/javascript" src="<%= file %>"></script><% }); %>
-    <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
-    <script type="text/javascript" src="assets/ckeditor/adapters/jquery.js"></script>
+    <script type="text/javascript" src="<%= file %>"></script>
+    <% }); %>
+    <script type="text/javascript" src="assets/ng-ckeditor/libs/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="assets/ng-ckeditor/libs/ckeditor/adapters/jquery.js"></script>
+    <script type="text/javascript" src="assets/ng-ckeditor/ng-ckeditor.js"></script>
 </head>
 
 <body id="portal" class="chell-login-required">
@@ -74,24 +77,22 @@
             </ul>
 
             <!-- Current User Menus -->
-            <ul class="nav navbar-nav pull-right" ng-controller="CurrentUserController">
-                <div class="btn-group">
-                    <a class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" href="#">
-                        <i class="glyphicon glyphicon-user"></i> {{currentUser.fullname}} <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#profile">Profile</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a class="cookie-delete" href="#">Delete Cookies</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#" ng-click="logout()">Logout</a></li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <a class="btn btn-default navbar-btn">
-                        <i class="glyphicon glyphicon-th-large" chell-portal-menu-toggle></i>
-                    </a>
-                </div>
+            <ul class="nav navbar-nav pull-right dropdown" ng-controller="CurrentUserController">
+                <a class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" href="#">
+                    <i class="glyphicon glyphicon-user"></i> {{currentUser.fullname}} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a class="cookie-delete" href="#">Delete Cookies</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" ng-click="logout()">Logout</a></li>
+                </ul>
+                <!--<div class="btn-group">-->
+                <!--<a class="btn btn-default navbar-btn">-->
+                <!--<i class="glyphicon glyphicon-th-large" chell-portal-menu-toggle></i>-->
+                <!--</a>-->
+                <!--</div>-->
             </ul>
 
             <!-- Navbar Search -->
@@ -99,6 +100,7 @@
                 <form class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="q" ng-model="searchTerm">
+
                         <div class="input-group-btn">
                             <a class="btn btn-default" ui-sref="searchresults" ng-click="search()"><i class="glyphicon glyphicon-search"></i></a>
                         </div>
@@ -141,7 +143,7 @@
                         <li ui-sref-active="active"><a ui-sref="searchresults"><i class="glyphicon glyphicon-align-justify"></i> Search Results</a>
                         </li>
                         <li visibility-role-id="101" class="nav-header">Administration</li>
-                        <li ui-sref-active="active" visibility-role-id="101" ><a ui-sref="useradmin"><i class="glyphicon glyphicon-user"></i> User Administration</a></li>
+                        <li ui-sref-active="active" visibility-role-id="101"><a ui-sref="useradmin"><i class="glyphicon glyphicon-user"></i> User Administration</a></li>
                         <li class="nav-header">Session</li>
                         <div ng-controller="CurrentUserController">
                             <li><a href="#" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
@@ -157,7 +159,7 @@
 
             <!-- Bread Crumb Navigation -->
             <div class="btn-group btn-breadcrumb">
-                <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+                <a ui-sref="dashboard" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
                 <a href="#" class="btn btn-default">{{pageTitle}}</a>
             </div>
 
@@ -174,24 +176,24 @@
     </div>
 </div>
 
-<aside id="right-panel">
-    <accordion close-others="oneAtATime">
-        <accordion-group heading="Dashboard">
-            <div>Portlet 1</div>
-            <div>Portlet 2</div>
-            <div>Portlet 3</div>
-            <div>Portlet 4</div>
-        </accordion-group>
-        <accordion-group heading="Administration">
-            <div>Users</div>
-            <div>Roles</div>
-        </accordion-group>
-        <accordion-group heading="Bookapp">
-            <div>Books</div>
-            <div>Authors</div>
-        </accordion-group>
-    </accordion>
-</aside>
+<!--<aside id="right-panel">-->
+<!--<accordion close-others="oneAtATime">-->
+<!--<accordion-group heading="Dashboard">-->
+<!--<div>Portlet 1</div>-->
+<!--<div>Portlet 2</div>-->
+<!--<div>Portlet 3</div>-->
+<!--<div>Portlet 4</div>-->
+<!--</accordion-group>-->
+<!--<accordion-group heading="Administration">-->
+<!--<div>Users</div>-->
+<!--<div>Roles</div>-->
+<!--</accordion-group>-->
+<!--<accordion-group heading="Bookapp">-->
+<!--<div>Books</div>-->
+<!--<div>Authors</div>-->
+<!--</accordion-group>-->
+<!--</accordion>-->
+<!--</aside>-->
 
 </body>
 </html>

@@ -1,23 +1,17 @@
-<div chell-portlet-container>
+<div>
     <div class="col-md-12 column" id="col1">
-        <chell-portlet title="Title Text" borderless="true">
-            <chell-web-content content_id="2"/>
-        </chell-portlet>
-        <chell-portlet title="Content Manager" minimized="true">
-            <chell-content-manager/>
-        </chell-portlet>
-        <chell-portlet title="Footer Text" borderless="true" >
-            <chell-web-content content_id="3"/>
-        </chell-portlet>
+        <chell-web-content content-id="0"/>
+    </div>
+    <div class="col-md-12 column">
+        <chell-web-content content-id="2"/>
     </div>
     <div class="col-md-6 column" id="col2">
-        <chell-portlet title="Footer Text" borderless="true" >
-            <chell-web-content content_id="3"/>
-        </chell-portlet>
+        <chell-web-content content-id="3" read-only="readOnly()"/>
     </div>
     <div class="col-md-6 column" id="col3">
-        <chell-portlet title="Footer Text" borderless="true" >
-            <chell-web-content content_id="1"/>
-        </chell-portlet>
+        <chell-web-content content-id="1"/>
+    </div>
+    <div class="col-md-12 column">
+        <chell-content-list/>
     </div>
 </div>

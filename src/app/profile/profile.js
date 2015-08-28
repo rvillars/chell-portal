@@ -18,6 +18,4 @@ angular.module( 'chell-portal.profile', [
 
 .controller( 'ProfileCtrl', function ProfileCtrl( $scope ) {
  
-})
-
-;
+});

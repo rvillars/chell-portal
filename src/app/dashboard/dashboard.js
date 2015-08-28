@@ -8,7 +8,8 @@ angular.module('chell-portal.dashboard', [
     'chell-widget.structures',
     'LocalStorageModule',
     'chell-widget.randommsg',
-    'chell-widget.iframe'
+    'chell-widget.iframe',
+    'chell-cms.webContentWidget'
 ])
     .config(function config($stateProvider, dashboardProvider, localStorageServiceProvider) {
         $stateProvider.state('dashboard', {
@@ -30,6 +31,7 @@ angular.module('chell-portal.dashboard', [
         var model = localStorageService.get(name);
 
         var initmodel = {
+            title: 'Personal Dashboard',
             structure: '4-4-4/12',
             rows: [{
                 columns: [{
@@ -39,16 +41,20 @@ angular.module('chell-portal.dashboard', [
                         config: {},
                         title: 'Widget 1'
                     }, {
-                        type: 'randommsg',
-                        config: {},
-                        title: 'Widget 2'
+                        type: 'webContent',
+                        config: {
+                            webContentId: '1'
+                        },
+                        title: 'Web Content Widget'
                     }]
                 }, {
                     styleClass: 'col-md-4',
                     widgets: [{
-                        type: 'randommsg',
-                        config: {},
-                        title: 'Widget 3'
+                        type: 'webContent',
+                        config: {
+                            webContentId: '2'
+                        },
+                        title: 'Web Content Widget'
                     }, {
                         type: 'randommsg',
                         config: {},

@@ -98,6 +98,7 @@ module.exports = {
             'vendor/angular-base64/angular-base64.js',
             'vendor/elasticsearch/elasticsearch.angular.js',
             'vendor/Sortable/Sortable.js',
+            'vendor/isteven-angular-multiselect/angular-multi-select.js',
 
             //Angular
             'vendor/angular-translate/angular-translate.js',
@@ -105,7 +106,8 @@ module.exports = {
 
             //Chell
             'vendor/chell-iam/chell-iam.js',
-            'vendor/chell-iam/adapters/MockIamAdapter.js',
+            'vendor/chell-iam/adapters/SCIMIamAdapter.js',
+            'vendor/chell-iam/adapters/SCIMIamMock.js',
             'vendor/chell-widget/chell-widget.js',
             'vendor/chell-cms/chell-cms.js',
             'vendor/chell-cms/adapters/MockCmsAdapter.js',

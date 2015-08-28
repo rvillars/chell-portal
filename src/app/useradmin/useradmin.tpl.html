@@ -1,15 +1,24 @@
-<div chell-portlet-container>
+<div style="padding: 0px 10px">
     <div class="col-md-12 column" id="col1">
-
-        <!-- User Portlet -->
-        <chell-portlet title="Users" visibility-role-id="101">
-            <chell-user-list/>
-        </chell-portlet>
-
-        <!-- Role Portlet -->
-        <chell-portlet title="Roles" visibility-role-id="101">
-            <chell-role-list/>
-        </chell-portlet>
-	
+        <div ng-controller="ExampleUserController">
+            <div ng-show="detail">
+                <h2>User Form</h2>
+                <chell-user-form save-button-hook="showList()" cancel-button-hook="showList()"/>
+            </div>
+            <div ng-show="list">
+                <h2>User List</h2>
+                <chell-user-list show-create-button="true" create-button-hook="showDetail()" edit-button-hook="showDetail()" read-only="readOnly()"/>
+            </div>
+        </div>
+        <div ng-controller="ExampleGroupController" visible-by-group="Administrators">
+            <div ng-show="detail">
+                <h2>Group Form</h2>
+                <chell-group-form save-button-hook="showList()" cancel-button-hook="showList()"/>
+            </div>
+            <div ng-show="list">
+                <h2>Group List</h2>
+                <chell-group-list show-create-button="true" create-button-hook="showDetail()" edit-button-hook="showDetail()" read-only="readOnly()"/>
+            </div>
+        </div>
     </div>
 </div>

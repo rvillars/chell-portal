@@ -77,23 +77,25 @@
             </ul>
 
             <!-- Current User Menus -->
-            <ul class="nav navbar-nav pull-right dropdown" ng-controller="CurrentUserController">
-                <a class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" href="#">
-                    <i class="glyphicon glyphicon-user"></i> {{currentUser.fullname}} <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a class="cookie-delete" href="#">Delete Cookies</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#" ng-click="logout()">Logout</a></li>
-                </ul>
-                <!--<div class="btn-group">-->
-                <!--<a class="btn btn-default navbar-btn">-->
-                <!--<i class="glyphicon glyphicon-th-large" chell-portal-menu-toggle></i>-->
+            <!--<ul class="nav navbar-nav pull-right dropdown" ng-controller="CurrentUserController">-->
+                <!--<a class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" href="#">-->
+                    <!--<i class="glyphicon glyphicon-user"></i> {{currentUser.fullname}} <span class="caret"></span>-->
                 <!--</a>-->
-                <!--</div>-->
-            </ul>
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="#profile">Profile</a></li>-->
+                    <!--<li><a href="#">Settings</a></li>-->
+                    <!--<li><a class="cookie-delete" href="#">Delete Cookies</a></li>-->
+                    <!--<li class="divider"></li>-->
+                    <!--<li><a href="#" ng-click="logout()">Logout</a></li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash;<div class="btn-group">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a class="btn btn-default navbar-btn">&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="glyphicon glyphicon-th-large" chell-portal-menu-toggle></i>&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</ul>-->
+
+            <chell-user-button class="pull-right"></chell-user-button>
 
             <!-- Navbar Search -->
             <div class="col-sm-3 col-md-3 pull-right" ng-controller="SearchBarController">
@@ -123,7 +125,7 @@
             <div class="member-box round-all" ng-controller="CurrentUserController">
                 <a><img ng-src="{{currentUser ? currentUser.gravatarMail ? ('http://www.gravatar.com/avatar/'+(currentUser.gravatarMail | md5)+'?s=50') : currentUser.photo : 'assets/member_ph.png'}}" class="member-box-avatar"/></a>
                 <span>
-                    <strong>{{currentUser.primaryRole.name}}</strong><br/>
+                    <strong>{{currentUser.groups[0].display}}</strong><br/>
                     <a href="#profile">{{currentUser.fullname}}</a><br/>
                     <span class="member-box-links"><a>Settings</a> | <a href="#" data-toggle="modal" data-target=".bs-modal-sm"
                                                                         ng-click="logout()">Logout</a></span>

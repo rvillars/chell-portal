@@ -76,7 +76,9 @@
                 <li><a href="#">Help</a></li>
             </ul>
 
-            <chell-user-button class="pull-right"></chell-user-button>
+            <chell-user-button class="pull-right">
+                <li visible-by-login role="presentation"><a role="menuitem" tabindex="-1" ui-sref="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+            </chell-user-button>
 
             <!-- Navbar Search -->
             <div class="col-sm-3 col-md-3 pull-right">
@@ -101,7 +103,7 @@
                 <a><img ng-src="{{currentUser ? currentUser.gravatarMail ? ('http://www.gravatar.com/avatar/'+(currentUser.gravatarMail | md5)+'?s=50') : currentUser.photo : 'assets/member_ph.png'}}" class="member-box-avatar"/></a>
                 <span>
                     <strong>{{currentUser.groups[0].display}}</strong><br/>
-                    <a href="#profile">{{currentUser.fullname}}</a><br/>
+                    <a ui-sref="profile">{{currentUser.fullname}}</a><br/>
                     <span class="member-box-links"><a>Settings</a> | <a href="#" data-toggle="modal" data-target=".bs-modal-sm"
                                                                         ng-click="logout()">Logout</a></span>
                 </span>

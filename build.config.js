@@ -69,6 +69,7 @@ module.exports = {
             'vendor/angular/angular.js',
             'vendor/angular-resource/angular-resource.js',
             'vendor/angular-mocks/angular-mocks.js',
+            'vendor/angular-sanitize/angular-sanitize.js',
 
             //AnglularUI
             'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
@@ -113,8 +114,9 @@ module.exports = {
             'vendor/chell-cms/adapters/MockCmsAdapter.js',
             'vendor/chell-cms/adapters/MockCmsMock.js',
             'vendor/chell-search/chell-search.js',
-            'vendor/chell-search/adapters/MockSearchAdapter.js',
-            'vendor/chell-search/interceptors/CmsSearchInterceptor.js',
+            'vendor/chell-search/adapters/ElasticSearchAdapter.js',
+            'vendor/chell-search/adapters/ElasticSearchMock.js',
+            'vendor/chell-search/interceptors/IndexCmsContentInterceptor.js',
             'vendor/chell-bookapp/chell-bookapp.js'
         ],
         css: [

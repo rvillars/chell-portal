@@ -1,17 +1,27 @@
 <div style="padding: 0px 7px">
-    <div class="col-md-12 column" id="col1">
-        <chell-web-content content-id="0"/>
-    </div>
     <div class="col-md-12 column">
-        <chell-web-content content-id="2"/>
+        <div ng-show="detail">
+            <h2>Content Form</h2>
+            <chell-content-form save-button-hook="showList()" cancel-button-hook="showList()" content-creator="currentUser()"/>
+        </div>
+        <div ng-show="list">
+            <h2>Content List</h2>
+            <chell-content-list show-create-button="true" create-button-hook="showDetail()" edit-button-hook="showDetail()" read-only="false"/>
+        </div>
+    </div>
+
+    <div class="col-md-12 column" id="col1">
+        <div>
+            <chell-web-content content-id="0" read-only="readOnly()"/>
+        </div>
+        <div>
+            <chell-web-content content-id="2"/>
+        </div>
     </div>
     <div class="col-md-6 column" id="col2">
         <chell-web-content content-id="3" read-only="readOnly()"/>
     </div>
     <div class="col-md-6 column" id="col3">
         <chell-web-content content-id="1"/>
-    </div>
-    <div class="col-md-12 column">
-        <chell-content-list/>
     </div>
 </div>

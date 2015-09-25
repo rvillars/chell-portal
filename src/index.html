@@ -76,38 +76,13 @@
                 <li><a href="#">Help</a></li>
             </ul>
 
-            <!-- Current User Menus -->
-            <!--<ul class="nav navbar-nav pull-right dropdown" ng-controller="CurrentUserController">-->
-                <!--<a class="btn btn-default dropdown-toggle navbar-btn" data-toggle="dropdown" href="#">-->
-                    <!--<i class="glyphicon glyphicon-user"></i> {{currentUser.fullname}} <span class="caret"></span>-->
-                <!--</a>-->
-                <!--<ul class="dropdown-menu">-->
-                    <!--<li><a href="#profile">Profile</a></li>-->
-                    <!--<li><a href="#">Settings</a></li>-->
-                    <!--<li><a class="cookie-delete" href="#">Delete Cookies</a></li>-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li><a href="#" ng-click="logout()">Logout</a></li>-->
-                <!--</ul>-->
-                <!--&lt;!&ndash;<div class="btn-group">&ndash;&gt;-->
-                <!--&lt;!&ndash;<a class="btn btn-default navbar-btn">&ndash;&gt;-->
-                <!--&lt;!&ndash;<i class="glyphicon glyphicon-th-large" chell-portal-menu-toggle></i>&ndash;&gt;-->
-                <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--</ul>-->
-
             <chell-user-button class="pull-right"></chell-user-button>
 
             <!-- Navbar Search -->
-            <div class="col-sm-3 col-md-3 pull-right" ng-controller="SearchBarController">
-                <form class="navbar-form" role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="q" ng-model="searchTerm">
-
-                        <div class="input-group-btn">
-                            <a class="btn btn-default" ui-sref="searchresults" ng-click="search()"><i class="glyphicon glyphicon-search"></i></a>
-                        </div>
-                    </div>
-                </form>
+            <div class="col-sm-3 col-md-3 pull-right">
+                <div class="navbar-form" role="search">
+                    <chell-search-input search-button-hook="navigateToResults()"/>
+                </div>
             </div>
 
         </div>

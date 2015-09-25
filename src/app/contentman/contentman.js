@@ -17,7 +17,24 @@ angular.module('chell-portal.contentman', [
     })
 
     .controller('ContentManCtrl', function ContentManCtrl($scope) {
-        $scope.readOnly = function () {
+        $scope.detail = false;
+        $scope.list = true;
+
+        $scope.showDetail = function() {
+            $scope.detail = true;
+            $scope.list = false;
+        };
+
+        $scope.showList = function() {
+            $scope.detail = false;
+            $scope.list = true;
+        };
+
+        $scope.readOnly = function() {
             return true;
+        };
+
+        $scope.currentUser = function() {
+            return 'testUser';
         };
     });

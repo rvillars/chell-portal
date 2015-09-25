@@ -304,7 +304,8 @@ module.exports = function (grunt) {
                 '-W097': true,
                 globals: {
                     $: false,
-                    angular: false
+                    angular: false,
+                    console: false
                 }
             }
         },
